@@ -22,8 +22,7 @@ unset _dir _fps
 
 # Set prompt theme
 typeset -ga ZSH_THEME
-zstyle -a ':zephyr:plugin:prompt' theme ZSH_THEME ||
-ZSH_THEME=(p10k mmc)
+zstyle -a ':zephyr:plugin:prompt' theme ZSH_THEME || ZSH_THEME=(p10k mmc)
 
 # Set helpers for antidote.
 is-theme-p10k()     { [[ "$ZSH_THEME" == (p10k|powerlevel10k)* ]] }

@@ -45,14 +45,15 @@ zstyle ':zephyr:plugin:editor' magic-enter 'no'
 #
 #
 
-zstyle ':zephyr:plugin:prompt' theme p10k mmc
+zstyle ':zephyr:plugin:prompt' theme starship mmc
+# zstyle ':zephyr:plugin:prompt' theme p10k mmc
 
 # tmux popup
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 # zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 zstyle ':zephyr:plugin:completion' compstyle 'zephyr'
-zstyle ':completion:*' use-cache on
+# zstyle ':completion:*' use-cache of
 # zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompcache"
 # # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
