@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+local folder_path="$1"
+
+# Check if the folder exists
+if [[ ! -d "$folder_path" ]]; then
+  return 1
+fi
+
+# Check if the folder is already in PATH
+if [[ ":$PATH:" != *":$folder_path:"* ]]; then
+  export PATH="$folder_path:$PATH"
+else
+fi
