@@ -39,14 +39,17 @@ noexpand=(
 zstyle ':zephyr:plugin:editor:glob-alias' noexpand $noexpand
 
 # Set the default (magic) command when hitting enter on an empty prompt.
-zstyle ':zephyr:plugin:editor' magic-enter 'no'
 # zstyle ':zephyr:plugin:editor:magic-enter' command 'ls -lh .'
 # zstyle ':zephyr:plugin:editor:magic-enter' git-command 'git status -u .'
 #
 #
+# magic-enter is not working
+zstyle ':zephyr:plugin:editor' magic-enter 'no'
+zstyle ':zephyr:plugin:editor:magic-enter' command ''
+zstyle ':zephyr:plugin:editor:magic-enter' git-command ''
 
-zstyle ':zephyr:plugin:prompt' theme starship mmc
-# zstyle ':zephyr:plugin:prompt' theme p10k mmc
+zstyle -a ':zephyr:plugin:prompt' theme _temp_theme_check || zstyle ':zephyr:plugin:prompt' theme starship dev
+unset _temp_theme_check
 
 # tmux popup
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup

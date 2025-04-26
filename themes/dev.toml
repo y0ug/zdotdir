@@ -119,11 +119,11 @@ pipestatus_format = '\[$pipestatus\]($style)'
 [aws]
 disabled = true
 
+[gcloud]
+disabled = true
+
 [kubernetes]
-disabled = false
+disabled = true
 
 [direnv]
 disabled = false
-
-[gcloud]
-disabled = true
