@@ -14,7 +14,7 @@ right_format = """$status$cmd_duration$git_branch${custom.git_status_dirty}$git_
 command_timeout = 2000
 
 # Set the palette.
-palette = "wombat"
+palette = "tokyo_night"
 
 # Define custom colors
 [palettes.tokyo_night]
@@ -59,9 +59,12 @@ yellow = '223'
 
 [character]
 format = "$symbol "
-success_symbol = "[❯](purple)[❯](cyan)"
-error_symbol = "[❯](yellow)[❯](red)"
-vicmd_symbol = "[❮](purple)[❮](cyan)"
+# success_symbol = "[❯](purple)[❯](cyan)"
+# error_symbol = "[❯](yellow)[❯](red)"
+# vicmd_symbol = "[❮](purple)[❮](cyan)"
+success_symbol = "[❯](cyan)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](purple)"
 
 [python]
 format = '[(\($virtualenv\) )]($style)'
@@ -69,9 +72,9 @@ style = 'white'
 
 [directory]
 style = "blue"
-truncation_length = 1
+truncation_length = 3
 truncation_symbol = ""
-fish_style_pwd_dir_length = 1
+fish_style_pwd_dir_length = 3
 
 # Right prompt uses left space padding.
 [git_branch]
