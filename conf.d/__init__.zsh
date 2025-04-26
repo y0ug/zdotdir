@@ -5,3 +5,7 @@
 export EDITOR=nvim
 export VISUAL=zeditor
 export PAGER=moar
+
+# Issue when PATH is getting to big
+# not really used
+unsetopt pathdirs

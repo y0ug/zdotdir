@@ -3,19 +3,6 @@
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
 
-
-# Set nix functions and completions.
-_fps=( "$HOME/.local/state/nix/profiles/home-manager/home-path/share/zsh/site-functions"
-   "$HOME/.nix-profile/share/zsh/site-functions/" )
-
-for _dir in $_fps; do
-  if [[ -r "$_dir" ]]; then
-    fpath=("$_dir" $fpath)
-  fi
-done
-unset _dir _fps
-
-
 # Set any zstyles you might use for configuration.
 [[ ! -f ${ZDOTDIR:-$HOME}/.zstyles ]] || source ${ZDOTDIR:-$HOME}/.zstyles
 [[ ! -f ${ZDOTDIR:-$HOME}/.zaliases ]] || source ${ZDOTDIR:-$HOME}/.zaliases
@@ -32,6 +19,15 @@ is-theme-starship() { [[ "$ZSH_THEME" == starship* ]] }
 for zlib in $ZDOTDIR/lib/*.zsh; source $zlib
 unset zlib
 
+#
+# Completions
+#
+
+# Uncomment to manually initialize completion system, or let Zephyr
+# do it automatically in the zshrc-post hook.
+# ZSH_COMPDUMP=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/compdump
+# [[ -d $ZSH_COMPDUMP:h ]] || mkdir -p $ZSH_COMPDUMP:h
+# autoload -Uz compinit && compinit -i -d $ZSH_COMPDUMP
 #
 # Prompt
 #
