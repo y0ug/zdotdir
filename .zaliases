@@ -12,8 +12,8 @@
 alias _=sudo
 alias l=ls
 alias g=git
-alias c=wl-copy
-alias p=wl-paste
+alias c=pbcopy
+alias p=pbpaste
 
 alias pv='export PASTE=$(wl-paste)'
 alias ctx="xargs files-content -R | c"
@@ -69,11 +69,6 @@ alias fdd='fd -type d -name'
 
 alias rgv="rg --pretty --vimgrep -H"
 
-alias pbcopy='xclip -selection clipboard'
-alias pbcopy='wl-copy'
-alias pbpaste='xclip -selection clipboard -o'
-alias pbpaste='wl-paste'
-
 # url encode/decode
 alias urldecode='python3 -c "import sys, urllib.parse as ul; \
     print(ul.unquote_plus(sys.argv[1]))"'
@@ -87,47 +82,43 @@ alias zdot='cd ${ZDOTDIR:-~}'
 
 # (($ + commands[nvim])) && alias vim=nvim
 
-# Check and set pbcopy/pbpaste aliases based on available tools
-if command -v pbcopy >/dev/null 2>&1; then
-  # macOS already has pbcopy/pbpaste
-  :
-elif command -v xclip >/dev/null 2>&1; then
-  # Use xclip if available
-  alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboard -o'
-elif command -v wl-copy >/dev/null 2>&1; then
-  # Use Wayland clipboard if available
-  alias pbcopy='wl-copy'
-  alias pbpaste='wl-paste'
-elif [[ "$TERM" == *"xterm"* ]] || [[ "$TERM" == *"screen"* ]] || [[ -n "$TMUX" ]]; then
-  # Use OSC 52 escape sequence for terminals that support it
-  function pbcopy() {
-    local data=$(cat)
-    printf "\033]52;c;$(printf "%s" "$data" | base64)\a"
-  }
-  function pbpaste() {
-    echo "pbpaste via OSC is not supported directly - clipboard data can only be sent TO terminal"
-  }
-else
-  # Fallback message if no clipboard tool is available
-  function pbcopy() {
-    echo "No clipboard tool available"
-    return 1
-  }
-  function pbpaste() {
-    echo "No clipboard tool available"
-    return 1
-  }
-fi
-
+# # Check and set pbcopy/pbpaste aliases based on available tools
+# if command -v pbcopy >/dev/null 2>&1; then
+#   # macOS already has pbcopy/pbpaste
+#   :
+# elif command -v xclip >/dev/null 2>&1; then
+#   # Use xclip if available
+#   alias pbcopy='xclip -selection clipboard'
+#   alias pbpaste='xclip -selection clipboard -o'
+# elif command -v wl-copy >/dev/null 2>&1; then
+#   # Use Wayland clipboard if available
+#   alias pbcopy='wl-copy'
+#   alias pbpaste='wl-paste'
+# elif [[ "$TERM" == *"xterm"* ]] || [[ "$TERM" == *"screen"* ]] || [[ -n "$TMUX" ]]; then
+#   # Use OSC 52 escape sequence for terminals that support it
+#   function pbcopy() {
+#     local data=$(cat)
+#     printf "\033]52;c;$(printf "%s" "$data" | base64)\a"
+#   }
+#   function pbpaste() {
+#     echo "pbpaste via OSC is not supported directly - clipboard data can only be sent TO terminal"
+#   }
+# else
+#   # Fallback message if no clipboard tool is available
+#   function pbcopy() {
+#     echo "No clipboard tool available"
+#     return 1
+#   }
+#   function pbpaste() {
+#     echo "No clipboard tool available"
+#     return 1
+#   }
+# fi
+#
 function vpn() {
   eval $(bwc.py --fields=username,password airvpn)
   local cmd="eddie-cli -login=$BW_USERNAME -password=$BW_PASSWORD -connect $@"
   NIXPKGS_ALLOW_INSECURE=1 nix-shell -p eddie --impure --command "$cmd"
 }
-
-PAGER=moar
-alias less=$PAGER
-alias more=$PAGER
 
 # vim: ft=zsh sw=2 ts=2 et

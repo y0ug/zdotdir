@@ -89,6 +89,7 @@ ZSH_HIGHLIGHT_STYLES[autodirectory]="fg=blue,bold,underline"
 
 ZSH_HIGHLIGHT_STYLES[path]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[default]=fg=blue
+ZSH_HIGHLIGHT_STYLES[comment]=fg=244
 
 # Make rm -rf a bit more obvious.
 typeset -A ZSH_HIGHLIGHT_PATTERNS

@@ -3,5 +3,5 @@
 
 # Apps
 export EDITOR=nvim
-export VISUAL=code
+export VISUAL=zeditor
 export PAGER=moar

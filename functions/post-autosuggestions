@@ -1,12 +1,26 @@
 #!/bin/zsh
 # https://github.com/zsh-users/zsh-autosuggestions
 
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 # Set highlight color, default 'fg=8'.
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+# Remove the vi-add-eol widget from the list of widgets that trigger
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(${ZSH_AUTOSUGGEST_ACCEPT_WIDGETS:#vi-add-eol})
 
 # Set key bindings.
 if [[ -n "$key_info" ]]; then
   # vi
   bindkey -M viins "$key_info[Control]F" vi-forward-word
   bindkey -M viins "$key_info[Control]E" vi-add-eol
+
+  bindkey -M viins "$key_info[Control]Y" forward-word
+  bindkey -M vicmd "$key_info[Control]Y" forward-word
+
+  # ctrl-space autosuggest-accept
+  # bindkey -M viins "^@" autosuggest-accept
+  bindkey -M viins "$key_info[Control] " autosuggest-accept
+  bindkey -M vicmd "$key_info[Control] " autosuggest-accept
 fi

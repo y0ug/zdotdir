@@ -18,7 +18,7 @@ romkatv/powerlevel10k kind:fpath
 # Completions
 #mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
-aloxaf/fzf-tab # Remove if you don't use fzf
+aloxaf/fzf-tab post:enable-fzf-tab
 mattmc3/zephyr path:plugins/completion
 
 # Editor
@@ -41,7 +41,7 @@ mattmc3/zephyr path:plugins/homebrew conditional:is-macos
 mattmc3/zephyr path:plugins/zfunctions
 mattmc3/zephyr path:plugins/confd
 #zdharma-continuum/fast-syntax-highlighting
-zsh-users/zsh-syntax-highlighing
+zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions post:post-autosuggestions
 zsh-users/zsh-history-substring-search post:post-history-substring-search
 

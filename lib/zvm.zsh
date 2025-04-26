@@ -1,6 +1,6 @@
 # ZVM_KEYTIMEOUT=1.
 #
-ZVM_INIT_MODE=sourcing
+# ZVM_INIT_MODE=sourcing
 ZVM_ESCAPE_KEYTIMEOUT=0.001
 ZVM_KEYTIMEOUT=0.001
 # ZVM_LINE_INIT_MODE="${ZVM_MODE_INSERT}"
@@ -77,14 +77,13 @@ function zvm_after_init() {
   # zvm_bindkey vicmd 'p' my_zvm_vi_put_after
   # zvm_bindkey vicmd 'P' my_zvm_vi_put_before
 
-  #print -P "%F{#f8f8f2}ZVM_AFTER_LAZY_KEYBINDINGS%f"
   bindkey -M vicmd 'K' run-help
-  bindkey -M viins '^Y' forward-word
-  bindkey -M vicmd '^Y' forward-word
+  # bindkey -M viins '^Y' forward-word
+  # bindkey -M vicmd '^Y' forward-word
 
   # ctrl-space autosuggest-accept
-  bindkey -M viins '^@' autosuggest-accept
-  bindkey -M vicmd '^@' autosuggest-accept
+  # bindkey -M viins '^@' autosuggest-accept
+  # bindkey -M vicmd '^@' autosuggest-accept
 
   bindkey -M viins '^P' up-line-or-history
   bindkey -M viins '^N' down-line-or-history
@@ -102,4 +101,19 @@ function zvm_after_init() {
   bindkey -M viins "^[[4~" end-of-line
   bindkey -M vicmd "^[[1~" beginning-of-line
   bindkey -M vicmd "^[[4~" end-of-line
+
+  bindkey -M emacs '^r' atuin-search
+  bindkey -M viins '^r' atuin-search-viins
+  # bindkey -M vicmd '/' atuin-search";
+
+  # bindkey -M emacs '^[[A' atuin-up-search
+  # bindkey -M vicmd '^[[A' atuin-up-search-vicmd
+  # bindkey -M viins '^[[A' atuin-up-search-viins
+  # bindkey -M emacs '^[OA' atuin-up-search
+  # bindkey -M vicmd '^[OA' atuin-up-search-vicmd
+  # bindkey -M viins '^[OA' atuin-up-search-viins
+  # bindkey -M vicmd 'k' atuin-up-search-vicmd"
+  post-autosuggestions
+  enable-fzf-tab
+  enable-fzf-completion
 }
