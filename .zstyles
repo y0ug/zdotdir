@@ -48,7 +48,7 @@ zstyle ':zephyr:plugin:editor' magic-enter 'no'
 zstyle ':zephyr:plugin:editor:magic-enter' command ''
 zstyle ':zephyr:plugin:editor:magic-enter' git-command ''
 
-zstyle -a ':zephyr:plugin:prompt' theme _temp_theme_check || zstyle ':zephyr:plugin:prompt' theme starship dev
+zstyle -a ':zephyr:plugin:prompt' theme _temp_theme_check || zstyle ':zephyr:plugin:prompt' theme starship mmc
 unset _temp_theme_check
 
 # tmux popup

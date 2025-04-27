@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+eval $(bwc.py --fields=username,password airvpn)
+local cmd="eddie-cli -login=$BW_USERNAME -password=$BW_PASSWORD -connect $@"
+NIXPKGS_ALLOW_INSECURE=1 nix-shell -p eddie --impure --command "$cmd"

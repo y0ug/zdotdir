@@ -10,7 +10,7 @@
 # Set prompt theme
 typeset -ga ZSH_THEME
 zstyle -a ':zephyr:plugin:prompt' theme ZSH_THEME || ZSH_THEME=(p10k mmc)
-echo $ZSH_THEME
+
 # Set helpers for antidote.
 is-theme-p10k()     { [[ "$ZSH_THEME" == (p10k|powerlevel10k)* ]] }
 is-theme-starship() { [[ "$ZSH_THEME" == starship* ]] }

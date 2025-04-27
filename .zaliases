@@ -22,6 +22,11 @@ alias lastdlc="lastdl | tail -1 | trdn | c"
 
 alias gs="git status"
 alias ga="git add"
+alias gp="git pull"
+alias gpa="git pull --all"
+alias gP="git push"
+alias gPb="git push origin $(git branch)"
+
 alias gcm="git commit -m"
 alias gacm="git commit -a -m"
 alias lg="lazygit"
@@ -80,45 +85,6 @@ alias zshrc='${EDITOR:-vim} "${ZDOTDIR:-$HOME}"/.zshrc'
 alias zbench='for i in {1..10}; do /usr/bin/env time zsh -lic exit; done'
 alias zdot='cd ${ZDOTDIR:-~}'
 
-# (($ + commands[nvim])) && alias vim=nvim
-
-# # Check and set pbcopy/pbpaste aliases based on available tools
-# if command -v pbcopy >/dev/null 2>&1; then
-#   # macOS already has pbcopy/pbpaste
-#   :
-# elif command -v xclip >/dev/null 2>&1; then
-#   # Use xclip if available
-#   alias pbcopy='xclip -selection clipboard'
-#   alias pbpaste='xclip -selection clipboard -o'
-# elif command -v wl-copy >/dev/null 2>&1; then
-#   # Use Wayland clipboard if available
-#   alias pbcopy='wl-copy'
-#   alias pbpaste='wl-paste'
-# elif [[ "$TERM" == *"xterm"* ]] || [[ "$TERM" == *"screen"* ]] || [[ -n "$TMUX" ]]; then
-#   # Use OSC 52 escape sequence for terminals that support it
-#   function pbcopy() {
-#     local data=$(cat)
-#     printf "\033]52;c;$(printf "%s" "$data" | base64)\a"
-#   }
-#   function pbpaste() {
-#     echo "pbpaste via OSC is not supported directly - clipboard data can only be sent TO terminal"
-#   }
-# else
-#   # Fallback message if no clipboard tool is available
-#   function pbcopy() {
-#     echo "No clipboard tool available"
-#     return 1
-#   }
-#   function pbpaste() {
-#     echo "No clipboard tool available"
-#     return 1
-#   }
-# fi
-#
-function vpn() {
-  eval $(bwc.py --fields=username,password airvpn)
-  local cmd="eddie-cli -login=$BW_USERNAME -password=$BW_PASSWORD -connect $@"
-  NIXPKGS_ALLOW_INSECURE=1 nix-shell -p eddie --impure --command "$cmd"
-}
+alias osc52='printf "\033]52;c;$(printf "%s" "$(cat)" | base64)\a"'
 
 # vim: ft=zsh sw=2 ts=2 et
