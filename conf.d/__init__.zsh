@@ -3,7 +3,8 @@
 
 # Apps
 export EDITOR=nvim
-export VISUAL=zeditor
+export VISUAL=nvim
+# export VISUAL=zeditor
 export PAGER=moar
 
 # Issue when PATH is getting to big

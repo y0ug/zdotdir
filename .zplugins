@@ -35,6 +35,8 @@ romkatv/zsh-bench kind:path
 #ohmyzsh/ohmyzsh path:plugins/extract
 mattmc3/zman
 
+$ZSH_CUSTOM/plugins/expand-project
+
 mattmc3/zephyr path:plugins/macos conditional:is-macos
 mattmc3/zephyr path:plugins/homebrew conditional:is-macos
 

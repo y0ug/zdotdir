@@ -8,7 +8,6 @@ export ANTIDOTE_HOME=${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/antidote}
 zstyle -s ':antidote:repo' path antidote_path ||
   antidote_path=$ANTIDOTE_HOME/mattmc3/antidote
 
-mkdir -p $antidote_path
 # Clone antidote if missing.
 [[ -d $antidote_path ]] ||
   git clone --depth 1 --quiet https://github.com/mattmc3/antidote $antidote_path

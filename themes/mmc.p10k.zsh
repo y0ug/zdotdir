@@ -381,8 +381,7 @@
       local       meta='%244F'  # grey foreground
       local      clean='%244F'  # grey foreground
       local   modified='%244F'  # grey foreground
-      local  untracked='%244F'  # grey foreground
-      local conflicted='%244F'  # grey foreground
+      local conflicted='%244F'  # grey foregRound
     fi
 
     local res
@@ -1650,21 +1649,21 @@
     prompt_example
   }
 
-  # # Add shell indicator to prompt.
-  # function prompt_shell() {
-  #   p10k segment -f 6 -t '%%'
-  # }
-  # function instant_prompt_shell() {
-  #   prompt_shell
-  # }
-  #
-  # function prompt_prompt_prechar() {
-  #   p10k segment -t '❱'
-  # }
-  # function instant_prompt_prompt_prechar() {
-  #   prompt_prompt_prechar
-  # }
-  #
+  # Add shell indicator to prompt.
+  function prompt_shell() {
+    p10k segment -f 6 -t '%%'
+  }
+  function instant_prompt_shell() {
+    prompt_shell
+  }
+
+  function prompt_prompt_prechar() {
+    p10k segment -t '❱'
+  }
+  function instant_prompt_prompt_prechar() {
+    prompt_prompt_prechar
+  }
+
   # User-defined prompt segments can be customized the same way as built-in segments.
   # typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
   # typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
