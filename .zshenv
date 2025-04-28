@@ -19,6 +19,9 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 # Set ZDOTDIR if you want to re-home Zsh.
 export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 
+# fzf-tab issue https://github.com/romkatv/powerlevel10k/issues/1251
+setopt prompt_subst
+
 # Fish-like dirs
 : ${__zsh_config_dir:=${ZDOTDIR:-${XDG_CONFIG_HOME:-$HOME/.config}/zsh}}
 : ${__zsh_user_data_dir:=${XDG_DATA_HOME:-$HOME/.local/share}/zsh}

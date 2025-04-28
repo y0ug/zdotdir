@@ -2,14 +2,13 @@
 #
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
-
 # Set any zstyles you might use for configuration.
 [[ ! -f ${ZDOTDIR:-$HOME}/.zstyles ]] || source ${ZDOTDIR:-$HOME}/.zstyles
 [[ ! -f ${ZDOTDIR:-$HOME}/.zaliases ]] || source ${ZDOTDIR:-$HOME}/.zaliases
 
 # Set prompt theme
 typeset -ga ZSH_THEME
-zstyle -a ':zephyr:plugin:prompt' theme ZSH_THEME || ZSH_THEME=(p10k mmc)
+(( ${#ZSH_THEME} )) || zstyle -a ':zephyr:plugin:prompt' theme ZSH_THEME || ZSH_THEME=(p10k mmc)
 
 # Set helpers for antidote.
 is-theme-p10k()     { [[ "$ZSH_THEME" == (p10k|powerlevel10k)* ]] }
@@ -28,6 +27,7 @@ unset zlib
 # ZSH_COMPDUMP=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/compdump
 # [[ -d $ZSH_COMPDUMP:h ]] || mkdir -p $ZSH_COMPDUMP:h
 # autoload -Uz compinit && compinit -i -d $ZSH_COMPDUMP
+
 #
 # Prompt
 #

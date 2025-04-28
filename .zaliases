@@ -25,7 +25,7 @@ alias ga="git add"
 alias gp="git pull"
 alias gpa="git pull --all"
 alias gP="git push"
-alias gPb="git push origin $(git branch)"
+alias gPb="git push origin \$(git branch)"
 
 alias gcm="git commit -m"
 alias gacm="git commit -a -m"

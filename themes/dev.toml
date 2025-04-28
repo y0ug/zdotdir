@@ -1,11 +1,12 @@
 
-add_newline = false
+add_newline = true
 
 # A minimal left prompt
-# format = """$python$directory$character"""
+format = """$kubernetes$aws$gcloud
+$python$directory$character"""
 
 # Move the rest of the prompt to the right
-# right_format = """$status$cmd_duration$git_branch${custom.git_status_dirty}$git_status"""
+right_format = """$status$cmd_duration$git_branch${custom.git_status_dirty}$git_status$nix_shell\\[$direnv\\]"""
 
 # Timeout for commands executed by starship (in milliseconds)
 command_timeout = 2000
@@ -103,6 +104,21 @@ bash_indicator = '󠀥$'
 style = 'cyan bold'
 disabled = true
 
+[nix_shell]
+symbol = '❄️'
+impure_msg = '[impure](bold red)'
+pure_msg = '[pure](bold green)'
+unknown_msg = '[unknown](bold yellow)'
+format = '[$symbol$state(\($name\))](bold blue)'
+disabled = false
+
+# can't apply conditional style
+[direnv]
+format = '[$symbol$loaded]($style)'
+loaded_msg = ' ✓'
+unloaded_msg = ' ✗'
+disabled = false
+
 [cmd_duration]
 format = ' [$duration]($style)'
 
@@ -124,6 +140,3 @@ disabled = true
 
 [kubernetes]
 disabled = true
-
-[direnv]
-disabled = false

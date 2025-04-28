@@ -78,7 +78,7 @@ _zsh_highlight_highlighter_subcommand_paint() {
 }
 
 # Add custom subcommand highlighter
-ZSH_HIGHLIGHT_HIGHLIGHTERS+=(subcommand)
+# ZSH_HIGHLIGHT_HIGHLIGHTERS+=(subcommand)
 
 # Highlight command flags (-f|--flag).
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=cyan

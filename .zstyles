@@ -48,8 +48,11 @@ zstyle ':zephyr:plugin:editor' magic-enter 'no'
 zstyle ':zephyr:plugin:editor:magic-enter' command ''
 zstyle ':zephyr:plugin:editor:magic-enter' git-command ''
 
-zstyle -a ':zephyr:plugin:prompt' theme _temp_theme_check || zstyle ':zephyr:plugin:prompt' theme starship mmc
-unset _temp_theme_check
+# THEME=(starship mmc)
+# _default_theme=(default)
+_default_theme=(p10k default)
+zstyle -a ':zephyr:plugin:prompt' theme _temp_theme_check || zstyle ':zephyr:plugin:prompt' theme $_default_theme
+unset _default_theme
 
 # tmux popup
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
