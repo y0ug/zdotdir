@@ -10,11 +10,11 @@ project_root() {
 }
 
 # Initial setup
-if root=$(project_root 2>/dev/null); then
-  dirname=$(basename "$root")
-  hash -d "$dirname"=$root
-  # hash -d p=$root
-fi
+# if root=$(project_root 2>/dev/null); then
+#   dirname=$(basename "$root")
+#   hash -d "$dirname"=$root
+#   # hash -d p=$root
+# fi
 
 # Define a hook that runs whenever directory changes
 function update_project_hash() {

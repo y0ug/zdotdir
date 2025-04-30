@@ -35,7 +35,7 @@ romkatv/zsh-bench kind:path
 #ohmyzsh/ohmyzsh path:plugins/extract
 mattmc3/zman
 
-$ZSH_CUSTOM/plugins/expand-project
+#$ZSH_CUSTOM/plugins/expand-project
 
 mattmc3/zephyr path:plugins/macos conditional:is-macos
 mattmc3/zephyr path:plugins/homebrew conditional:is-macos
@@ -43,8 +43,8 @@ mattmc3/zephyr path:plugins/homebrew conditional:is-macos
 # Fish-like
 mattmc3/zephyr path:plugins/zfunctions
 mattmc3/zephyr path:plugins/confd
-#zdharma-continuum/fast-syntax-highlighting
-zsh-users/zsh-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting
+#zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions post:post-autosuggestions
 zsh-users/zsh-history-substring-search post:post-history-substring-search
 
