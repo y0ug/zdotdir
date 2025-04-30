@@ -85,6 +85,5 @@ alias zshrc='${EDITOR:-vim} "${ZDOTDIR:-$HOME}"/.zshrc'
 alias zbench='for i in {1..10}; do /usr/bin/env time zsh -lic exit; done'
 alias zdot='cd ${ZDOTDIR:-~}'
 
-alias osc52='printf "\033]52;c;$(printf "%s" "$(cat)" | base64)\a"'
-
+alias osc52='{ input=$(cat); encoded=$(printf %s "$input" | base64 | tr -d "\n"); printf "\033]52;c;%s\a" "$encoded"; }'
 # vim: ft=zsh sw=2 ts=2 et
