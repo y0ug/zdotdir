@@ -24,7 +24,8 @@ mattmc3/zephyr path:plugins/completion
 
 # Editor
 mattmc3/zephyr path:plugins/editor
-jeffreytse/zsh-vi-mode
+y0ug/zsh-vi-mode
+#jeffreytse/zsh-vi-mode
 romkatv/zsh-no-ps2
 
 mattmc3/zephyr path:plugins/color

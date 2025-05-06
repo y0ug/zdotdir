@@ -2,6 +2,10 @@
 #
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
+
+[[ "$ZPROFRC" -ne 1 ]] || zmodload zsh/zprof
+alias zprofrc="ZPROFRC=1 zsh"
+
 # Set any zstyles you might use for configuration.
 [[ ! -f ${ZDOTDIR:-$HOME}/.zstyles ]] || source ${ZDOTDIR:-$HOME}/.zstyles
 [[ ! -f ${ZDOTDIR:-$HOME}/.zaliases ]] || source ${ZDOTDIR:-$HOME}/.zaliases
