@@ -1,12 +1,48 @@
-# ZVM_KEYTIMEOUT=1.
-#
 # ZVM_INIT_MODE=sourcing
+
+# if set in zvm_config we shoyld export them
+ZVM_FAST_ESCAPE=1
 ZVM_ESCAPE_KEYTIMEOUT=0.001
-ZVM_KEYTIMEOUT=0.001
+ZVM_KEYTIMEOUT=0.04
 ZVM_LINE_INIT_MODE="${ZVM_MODE_INSERT}"
 ZVM_VI_SURROUND_BINDKEY="s-prefix"
-#ZVM_VI_HIGHLIGHT_FOREGROUND='#e5e9f0'
-#ZVM_VI_HIGHLIGHT_BACKGROUND='#434c5e'
+
+#  ## Surround
+#
+# There are 2 kinds of keybinding mode for surround operating, default is classic mode, you can choose the mode by setting ZVM_VI_SURROUND_BINDKEY option.
+#
+#     classic mode (verb->s->surround)
+#
+#     S" : Add " for visual selection
+#     ys" : Add " for visual selection
+#     cs"' : Change " to '
+#     ds" : Delete "
+#
+#     s-prefix mode (s->verb->surround)
+#
+#     sa" : Add " for visual selection
+#     sd" : Delete "
+#     sr"' : Change " to '
+#
+# Note that key sequences must be pressed in fairly quick succession to avoid a timeout. You may extend this timeout with the ZVM_KEYTIMEOUT option.
+# How to select surround text object?
+#
+#     vi" : Select the text object inside the quotes
+#     va( : Select the text object including the brackets
+#
+# Then you can do any operation for the selection:
+#
+#     Add surrounds for text object
+#
+#     vi" -> S[ or sa[ => "object" -> "[object]"
+#     va" -> S[ or sa[ => "object" -> ["object"]
+#
+#     Delete/Yank/Change text object
+#
+#     di( or vi( -> d
+#     ca( or va( -> c
+#     yi( or vi( -> y
+#
 function zvm_config() {
   # print -P "%F{#f8f8f2}ZVM_CONFIG%f"
   ZVM_READKEY_ENGINE="${ZVM_READKEY_ENGINE_NEX}"
@@ -21,8 +57,7 @@ function zvm_config() {
   #
 
   #fix tmux cursor block not showing
-  #
-  ZVM_CURSOR_STYLE_ENABLED=false
+  ZVM_CURSOR_STYLE_ENABLED=true
 }
 my_zvm_vi_yank() {
   zvm_vi_yank

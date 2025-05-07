@@ -2,7 +2,6 @@
 #
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
-
 [[ "$ZPROFRC" -ne 1 ]] || zmodload zsh/zprof
 alias zprofrc="ZPROFRC=1 zsh"
 
