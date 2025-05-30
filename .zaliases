@@ -15,6 +15,14 @@ alias g=git
 alias c=pbcopy
 alias p=pbpaste
 
+alias git-rename='git filter-repo --mailmap <(echo "Hugo Caron <hca443@gmail.com> <hca443@gmail.com>")'
+
+alias rm='echo "\033[31m⚠️ used tp (trash-put) instead$*\033[0m"  && rm -i'
+
+# Example usage:
+# echo_warning "This is a warning message"
+alias tp="trash-put"
+
 alias pv='export PASTE=$(wl-paste)'
 alias ctx="xargs files-content -R | c"
 alias trdn="tr -d '\n'"
@@ -30,7 +38,8 @@ alias gPb="git push origin \$(git branch)"
 alias gcm="git commit -m"
 alias gacm="git commit -a -m"
 alias lg="lazygit"
-alias tree="exa -T --group-directories-first --icons=auto --git-ignore"
+# alias tree="exa -T --group-directories-first --icons=auto --git-ignore"
+alias tree="exa -T --group-directories-first --git-ignore"
 
 alias gca="git diff --cached | aichat -r commit - | git commit -F - -e"
 alias gcae="git diff --cached | aichat -r commit - | git commit -F -"
@@ -46,8 +55,8 @@ alias la='ls -lAh'
 alias ldot='ls -ld .*'
 
 if command -v eza >/dev/null 2>&1; then
-  alias eza="eza --group-directories-first --hyperlink --icons=auto"
-  alias exa="eza --group-directories-first --hyperlink --icons=auto"
+  alias eza="eza --group-directories-first"
+  alias exa="eza --group-directories-first"
   alias ls="eza"
   alias ll="eza -l -g --time-style=long-iso"
   alias l="eza -F -a"
